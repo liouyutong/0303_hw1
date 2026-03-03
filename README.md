@@ -1,14 +1,10 @@
-# 劉禹彤 — 個人頁面
+# Overview
 
-一個以 **簡約古風** 為設計理念的單頁個人網站，融合了水墨山水、朱紅印章、飄落花瓣等中國傳統美學元素，呈現典雅的視覺體驗。
+Today, we developed and deployed a minimalist ancient-style personal webpage for **劉禹彤**. The project involved creating a high-quality frontend with traditional Chinese aesthetics and setting up a professional version control workflow with GitHub.
 
----
+**Live Demo:** [https://liouyutong.github.io/0303_hw1/](https://liouyutong.github.io/0303_hw1/)
 
-## 🌐 Live Preview
-
-👉 **[點此查看線上 Demo](https://liouyutong.github.io/0303_hw1/)**
-
-或用任意現代瀏覽器開啟 `index.html` 在本地預覽。
+![Preview](./preview.png)
 
 ---
 
@@ -41,46 +37,20 @@
 
 ## 🛠️ Tech Stack
 
-- **HTML5** — 語意化頁面結構，SEO 友善
-- **Vanilla CSS3** — 自訂屬性、關鍵幀動畫、backdrop-filter 毛玻璃效果
-- **Vanilla JavaScript** — 無框架或外部依賴，純原生實現
-- **Google Fonts** — Ma Shan Zheng、Noto Serif TC 字型載入
-- **SVG** — 內嵌 SVG 繪製山水裝飾與波浪分隔線
+- **HTML5** — 語意化頁面結構
+- **Vanilla CSS3** — 自適應屬性與關鍵幀動畫
+- **Vanilla JavaScript** — 原生 JS 實現時鐘與特效
+- **Google Fonts** — 載入中文字體
 
 ---
 
-## 🚀 Getting Started
-
-不需要任何建置步驟，直接在瀏覽器中開啟即可：
-
-```bash
-# 方法一：直接用瀏覽器開啟
-open index.html
-
-# 方法二：使用 VS Code Live Server
-# 安裝 Live Server 擴充套件後，右鍵 index.html → Open with Live Server
-```
-
----
-
-## 📁 File Structure
+## � File Structure
 
 ```
 L1/
-├── index.html   # 頁面結構與語意化 HTML
-├── style.css    # 所有樣式：佈局、字型、動畫、毛玻璃效果
-├── script.js    # 即時時鐘邏輯 + 花瓣動畫 + 詩句輪播
-└── README.md    # 本文件
+├── index.html   # Page structure and semantic HTML
+├── style.css    # All styling: layout, typography, animations
+├── script.js    # Live clock logic + petal animation
+├── preview.png  # Webpage preview image
+└── README.md    # This file
 ```
-
----
-
-## 📝 Development Notes
-
-本專案使用 **Gemini** AI 輔助開發，主要步驟如下：
-
-1. 根據參考圖片的佈局（中央卡片 + 名字 + 時鐘 + 狀態指示器），重新以「簡約古風」風格詮釋
-2. 建立 `index.html` 頁面結構，包含水墨背景、印章、時鐘、詩句等區塊
-3. 編寫 `style.css`，設計古風配色與動畫系統（水墨暈染、花瓣飄落、印章彈入）
-4. 實作 `script.js`，完成即時時鐘（中文日期格式）、花瓣生成器、詩句輪播功能
-5. 瀏覽器預覽確認效果後，推送至 GitHub 倉庫
