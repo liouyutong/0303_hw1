@@ -6,7 +6,9 @@
 
 ## 🌐 Live Preview
 
-用任意現代瀏覽器開啟 `index.html` 即可在本地預覽頁面。
+👉 **[點此查看線上 Demo](https://liouyutong.github.io/0303_hw1/)**
+
+或用任意現代瀏覽器開啟 `index.html` 在本地預覽。
 
 ---
 
