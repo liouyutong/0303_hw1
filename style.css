@@ -1,0 +1,476 @@
+/* ============================
+   簡約古風 — 個人頁面
+   ============================ */
+
+/* --- 基礎重置 & 變數 --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 古風配色 */
+    --ink-black: #2c2c2c;
+    --ink-dark: #3a3a3a;
+    --ink-medium: #6b6b6b;
+    --ink-light: #9a9a9a;
+    --paper: #f5f0e8;
+    --paper-light: #faf7f2;
+    --paper-dark: #e8e0d0;
+    --vermillion: #c45c4a;
+    --vermillion-light: #d4776a;
+    --gold-accent: #b8963e;
+    --bamboo-green: #6b7f5e;
+    --mountain-mist: rgba(139, 115, 85, 0.08);
+
+    /* 字型 */
+    --font-display: 'Ma Shan Zheng', cursive;
+    --font-serif: 'Noto Serif TC', 'ZCOOL XiaoWei', serif;
+    --font-body: 'Noto Serif TC', serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    background-color: var(--paper);
+    color: var(--ink-black);
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- 背景裝飾 --- */
+.bg-decoration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* 水墨暈染效果 */
+.ink-wash {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: inkFloat 20s ease-in-out infinite;
+}
+
+.ink-wash-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(196, 92, 74, 0.12) 0%, transparent 70%);
+    top: -10%;
+    right: -5%;
+    animation-delay: 0s;
+}
+
+.ink-wash-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(107, 127, 94, 0.1) 0%, transparent 70%);
+    bottom: -5%;
+    left: -5%;
+    animation-delay: -7s;
+}
+
+.ink-wash-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(184, 150, 62, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -14s;
+}
+
+@keyframes inkFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* 山水遠景 SVG */
+.mountain-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    opacity: 0.6;
+}
+
+/* 花瓣 */
+.petals-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    pointer-events: none;
+    animation: petalFall linear forwards;
+}
+
+.petal::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--vermillion-light);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.35;
+    transform: rotate(45deg);
+}
+
+@keyframes petalFall {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) rotate(0deg) translateX(0);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg) translateX(80px);
+    }
+}
+
+/* --- 主容器 --- */
+.main-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 卡片 --- */
+.card {
+    position: relative;
+    width: 420px;
+    max-width: 90vw;
+    padding: 3rem 2.5rem 2.5rem;
+    background: rgba(250, 247, 242, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 115, 85, 0.15);
+    border-radius: 12px;
+    box-shadow:
+        0 8px 32px rgba(139, 115, 85, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 16px 48px rgba(139, 115, 85, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* --- 裝飾線 --- */
+.card-ornament {
+    width: 60%;
+    color: var(--gold-accent);
+}
+
+.top-ornament {
+    margin-bottom: 1rem;
+}
+
+.bottom-ornament {
+    margin-top: 1.2rem;
+}
+
+.ornament-svg {
+    width: 100%;
+    height: auto;
+}
+
+/* --- 印章 --- */
+.seal-stamp {
+    width: 48px;
+    height: 48px;
+    border: 2.5px solid var(--vermillion);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+    animation: sealAppear 0.8s ease-out 0.3s both;
+}
+
+.seal-stamp:hover {
+    transform: rotate(0deg) scale(1.08);
+}
+
+.seal-stamp span {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--vermillion);
+    line-height: 1;
+    user-select: none;
+}
+
+@keyframes sealAppear {
+    0% {
+        opacity: 0;
+        transform: rotate(-5deg) scale(0.5);
+    }
+    60% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(-5deg) scale(1);
+    }
+}
+
+/* --- 名字 --- */
+.name {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: var(--ink-black);
+    letter-spacing: 0.3em;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    animation: nameReveal 1s ease-out 0.5s both;
+}
+
+@keyframes nameReveal {
+    0% {
+        opacity: 0;
+        letter-spacing: 0.8em;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 0.3em;
+    }
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--ink-light);
+    letter-spacing: 0.5em;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 0.8s ease-out 0.8s both;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* --- 分割線 --- */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    animation: fadeIn 0.8s ease-out 1s both;
+}
+
+.divider-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--gold-accent);
+    opacity: 0.5;
+}
+
+.divider-line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+    opacity: 0.4;
+}
+
+.divider-line.short {
+    width: 30px;
+}
+
+.divider-diamond {
+    font-size: 0.65rem;
+    color: var(--gold-accent);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.divider-diamond.small {
+    font-size: 0.5rem;
+}
+
+.small-divider {
+    margin: 0.8rem 0;
+}
+
+/* --- 時鐘區域 --- */
+.clock-section {
+    text-align: center;
+    animation: fadeIn 0.8s ease-out 1.1s both;
+}
+
+.time-display {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--ink-dark);
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    font-variant-numeric: tabular-nums;
+    position: relative;
+}
+
+.time-display::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(184, 150, 62, 0.2), transparent);
+}
+
+.date-display {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    color: var(--ink-medium);
+    letter-spacing: 0.15em;
+    margin-top: 0.5rem;
+}
+
+/* --- 狀態徽章 --- */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 1rem;
+    background: rgba(232, 224, 208, 0.6);
+    border: 1px solid rgba(139, 115, 85, 0.1);
+    border-radius: 20px;
+    margin-top: 0.3rem;
+    animation: fadeIn 0.8s ease-out 1.3s both;
+    transition: background 0.3s ease;
+}
+
+.status-badge:hover {
+    background: rgba(232, 224, 208, 0.9);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--bamboo-green);
+    box-shadow: 0 0 6px rgba(107, 127, 94, 0.5);
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 4px rgba(107, 127, 94, 0.4); }
+    50% { box-shadow: 0 0 10px rgba(107, 127, 94, 0.7); }
+}
+
+.status-text {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    color: var(--ink-medium);
+    letter-spacing: 0.1em;
+}
+
+/* --- 底部詩句 --- */
+.poem-quote {
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    animation: fadeIn 1s ease-out 1.5s both;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.poem-quote:hover {
+    opacity: 1;
+}
+
+/* --- 響應式 --- */
+@media (max-width: 480px) {
+    .card {
+        padding: 2.5rem 1.5rem 2rem;
+        width: 95vw;
+    }
+
+    .name {
+        font-size: 2.4rem;
+        letter-spacing: 0.2em;
+    }
+
+    .time-display {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.3em;
+    }
+}
+
+/* --- 紙質紋理覆蓋 --- */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.5;
+}

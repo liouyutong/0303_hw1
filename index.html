@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="劉禹彤的個人頁面 — 簡約古風設計">
+    <title>劉禹彤 — 個人空間</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 背景裝飾元素 -->
+    <div class="bg-decoration">
+        <div class="ink-wash ink-wash-1"></div>
+        <div class="ink-wash ink-wash-2"></div>
+        <div class="ink-wash ink-wash-3"></div>
+        <!-- 飄落的花瓣 -->
+        <div class="petals-container" id="petalsContainer"></div>
+        <!-- 山水遠景 -->
+        <svg class="mountain-bg" viewBox="0 0 1440 400" preserveAspectRatio="none">
+            <path d="M0,400 L0,280 Q120,180 240,250 Q360,140 480,220 Q560,160 640,200 Q720,120 800,190 Q880,100 960,170 Q1040,80 1120,160 Q1200,100 1280,180 Q1360,130 1440,200 L1440,400 Z" fill="rgba(139,115,85,0.06)"/>
+            <path d="M0,400 L0,320 Q180,240 360,300 Q480,220 600,280 Q720,200 840,260 Q960,180 1080,250 Q1200,190 1320,240 Q1380,210 1440,260 L1440,400 Z" fill="rgba(139,115,85,0.04)"/>
+        </svg>
+    </div>
+
+    <!-- 主卡片 -->
+    <main class="main-container">
+        <div class="card">
+            <!-- 頂部裝飾線 -->
+            <div class="card-ornament top-ornament">
+                <svg viewBox="0 0 200 20" class="ornament-svg">
+                    <path d="M0,10 Q25,0 50,10 Q75,20 100,10 Q125,0 150,10 Q175,20 200,10" stroke="currentColor" fill="none" stroke-width="1" opacity="0.4"/>
+                </svg>
+            </div>
+
+            <!-- 印章裝飾 -->
+            <div class="seal-stamp">
+                <span>禹</span>
+            </div>
+
+            <!-- 名字 -->
+            <h1 class="name" id="userName">劉禹彤</h1>
+            <p class="subtitle">個 人 空 間</p>
+
+            <!-- 分割線 -->
+            <div class="divider">
+                <span class="divider-dot"></span>
+                <span class="divider-line"></span>
+                <span class="divider-diamond">◇</span>
+                <span class="divider-line"></span>
+                <span class="divider-dot"></span>
+            </div>
+
+            <!-- 時鐘 -->
+            <div class="clock-section">
+                <div class="time-display" id="timeDisplay">14:31:40</div>
+                <div class="date-display" id="dateDisplay">二〇二六年 三月 三日 星期二</div>
+            </div>
+
+            <!-- 底部分割線 -->
+            <div class="divider small-divider">
+                <span class="divider-line short"></span>
+                <span class="divider-diamond small">◇</span>
+                <span class="divider-line short"></span>
+            </div>
+
+            <!-- 狀態 -->
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span class="status-text">在線</span>
+            </div>
+
+            <!-- 底部裝飾線 -->
+            <div class="card-ornament bottom-ornament">
+                <svg viewBox="0 0 200 20" class="ornament-svg">
+                    <path d="M0,10 Q25,0 50,10 Q75,20 100,10 Q125,0 150,10 Q175,20 200,10" stroke="currentColor" fill="none" stroke-width="1" opacity="0.4"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 底部詩句 -->
+        <p class="poem-quote">「 山不在高，有仙則名 」</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
