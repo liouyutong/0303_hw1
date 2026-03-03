@@ -6,7 +6,7 @@
 
 ## 🌐 Live Preview
 
-👉 **[點此查看線上 Demo](https://liouyutong.github.io/0303_hw1/)**
+**Live Demo:** https://liouyutong.github.io/0303_hw1/
 
 ![Preview](./preview.png)
 
